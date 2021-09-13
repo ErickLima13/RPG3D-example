@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
     public float RotSpeed;
     private float Rotation;
     public float Gravity;
+    public float EnemyDamage = 25f;
 
     Vector3 MoveDirection;
 
@@ -102,19 +103,21 @@ public class Player : MonoBehaviour
             isReady = true;
             anim.SetBool("attacking", true);
             anim.SetInteger("transition", 2);
-            yield return new WaitForSeconds(1.3f);
 
+            yield return new WaitForSeconds(0.5f);
             GetEnemiesRange();
             foreach (Transform enemies in EnemiesList)
             {
                 //executar ação de dano no inimigo
                 Enemy enemy = enemies.GetComponent<Enemy>();
 
-                if(enemy != null)
+                if (enemy != null)
                 {
-                    enemy.GetHit();
+                    enemy.GetHit(EnemyDamage);
                 }
             }
+
+            yield return new WaitForSeconds(0.8f);
 
             anim.SetInteger("transition", transitionValue);
             anim.SetBool("attacking", false);

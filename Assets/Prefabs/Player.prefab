@@ -225,7 +225,8 @@ MonoBehaviour:
   Speed: 5
   RotSpeed: 220
   Gravity: 150
-  ColliderRadius: 0.6
+  EnemyDamage: 25
+  ColliderRadius: 1.01
 --- !u!1 &8072526705954955946
 GameObject:
   m_ObjectHideFlags: 0
