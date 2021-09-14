@@ -10,11 +10,15 @@ public class Player : MonoBehaviour
     private float Rotation;
     public float Gravity;
     public float EnemyDamage = 25f;
+    public float TotalHealth = 100f;
+    public float CurrentHealth;
+    public bool isAlive;
 
     Vector3 MoveDirection;
 
     CharacterController controller;
     Animator anim;
+    
 
     bool isReady;
 
@@ -28,6 +32,9 @@ public class Player : MonoBehaviour
     {
         controller = GetComponent<CharacterController>();
         anim = GetComponent<Animator>();
+
+        isAlive = true;
+        CurrentHealth = TotalHealth;
     }
 
     // Update is called once per frame
@@ -54,7 +61,7 @@ public class Player : MonoBehaviour
                 {
                     anim.SetBool("walking", false);
                     MoveDirection = Vector3.zero;
-                    StartCoroutine(Attack(1));
+                    //StartCoroutine(Attack(1));
                 }                   
             }
 
@@ -89,16 +96,16 @@ public class Player : MonoBehaviour
                 if (!anim.GetBool("walking"))
                 {
                     //executar ataque
-                    StartCoroutine(Attack(0));
+                    StartCoroutine("Attack");
 
                 }
             }
         }
     }
 
-    IEnumerator Attack(int transitionValue)
+    IEnumerator Attack()
     {
-        if (!isReady)
+        if (!isReady && !anim.GetBool("hiting"))
         {
             isReady = true;
             anim.SetBool("attacking", true);
@@ -119,7 +126,7 @@ public class Player : MonoBehaviour
 
             yield return new WaitForSeconds(0.8f);
 
-            anim.SetInteger("transition", transitionValue);
+            anim.SetInteger("transition", 0);
             anim.SetBool("attacking", false);
             isReady = false;
         }
@@ -141,5 +148,41 @@ public class Player : MonoBehaviour
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position + transform.forward, ColliderRadius);
+    }
+
+    public void GetHit(float Damage)
+    {
+        CurrentHealth -= Damage;
+
+        if (CurrentHealth > 0)
+        {
+
+            //print("player tomou dano");
+            //toma hit aqui
+            StopCoroutine("Attack");
+            anim.SetInteger("transition", 3);
+            anim.SetBool("hiting", true);
+            StartCoroutine(RecoveryFromHit());
+            
+        }
+        else
+        {
+            //morre aqui
+            anim.SetInteger("transition", 4);
+            isAlive = false;
+            Speed = 0;
+            
+            
+
+        }
+    }
+
+    IEnumerator RecoveryFromHit()
+    {
+        yield return new WaitForSeconds(1.1f);
+        anim.SetInteger("transition", 0);
+        anim.SetBool("hiting", false);
+        isReady = false;
+        anim.SetBool("attacking", false);
     }
 }
