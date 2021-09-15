@@ -226,7 +226,7 @@ MonoBehaviour:
   RotSpeed: 220
   Gravity: 150
   EnemyDamage: 25
-  TotalHealth: 200
+  TotalHealth: 300
   CurrentHealth: 0
   isAlive: 0
   ColliderRadius: 1.6

@@ -443,7 +443,9 @@ MonoBehaviour:
   MovementSpeed: 0
   ColliderRadius: 1.6
   lookRadius: 10
+  Damage: 25
   target: {fileID: 0}
+  player: {fileID: 0}
   PlayerIsAlive: 0
 --- !u!195 &1052691521991273924
 NavMeshAgent:
