@@ -171,8 +171,9 @@ public class Player : MonoBehaviour
             anim.SetInteger("transition", 4);
             isAlive = false;
             Speed = 0;
-            
-            
+            RotSpeed = 0;
+
+
 
         }
     }

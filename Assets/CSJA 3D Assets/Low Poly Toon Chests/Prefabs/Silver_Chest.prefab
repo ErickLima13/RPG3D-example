@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 443102}
   - component: {fileID: 9518710}
+  - component: {fileID: 265299986}
+  - component: {fileID: 265299985}
   m_Layer: 0
   m_Name: Silver_Chest
   m_TagString: Untagged
@@ -24,7 +26,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 115298}
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: -0.00000016292068}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0.00000028088027}
   m_LocalPosition: {x: -2.504469, y: -7.2537875, z: -6.4638567}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -33,7 +35,7 @@ Transform:
   - {fileID: 409920}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 179.99998, z: 0}
 --- !u!95 &9518710
 Animator:
   serializedVersion: 3
@@ -44,7 +46,7 @@ Animator:
   m_GameObject: {fileID: 115298}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 203812e2dec82c146ae4519a0b15888a, type: 3}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a1b77bb04b8968846b5d40a8e9bf13ac, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -53,6 +55,36 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!65 &265299986
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 115298}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0851246, y: 1.0429649, z: 1}
+  m_Center: {x: 0.042562306, y: 0.021482468, z: 4.348125e-16}
+--- !u!114 &265299985
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 115298}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d0001bae66fb0540b44e03782cb76e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ColliderRadius: 1.5
+  IsOpened: 0
+  Items:
+  - {fileID: 11400000, guid: 8f534d52571ce1343a4516c4fc827ba2, type: 2}
+  - {fileID: 11400000, guid: 79286ad23b3a9614fb7c15199fd0aeb1, type: 2}
 --- !u!1 &115314
 GameObject:
   m_ObjectHideFlags: 0
@@ -98,6 +130,7 @@ SkinnedMeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -181,6 +214,7 @@ SkinnedMeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
