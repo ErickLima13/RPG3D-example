@@ -20,6 +20,19 @@ public class Item : ScriptableObject
 
     public Type ItemType;
 
+    [System.Serializable]
+    public enum SlotsType
+    {
+        Helmet,
+        Shield,
+        Armor,
+        Trincket,
+        Sword,
+
+    }
+
+    public SlotsType SlotType;
+
     public void GetAction()
     {
         switch (ItemType)

@@ -154,11 +154,8 @@ public class Player : MonoBehaviour
 
     public void GetHit(float Damage)
     {
-        if(EnemiesList != null)
-        {
-            CurrentHealth -= Damage;
-        }
         
+        CurrentHealth -= Damage;
 
         if (CurrentHealth > 0)
         {

@@ -16,3 +16,4 @@ MonoBehaviour:
   Name: Potion
   Value: 50
   ItemType: 0
+  SlotType: 1

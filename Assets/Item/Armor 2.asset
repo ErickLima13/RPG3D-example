@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fcfa661d550a5c34b95bb64e13b19c32, type: 3}
-  m_Name: Elixir
+  m_Name: Armor 2
   m_EditorClassIdentifier: 
-  icon: {fileID: 21300000, guid: 6592b916f86b19e428db6f6847c7b6dd, type: 3}
-  Name: Elixir
-  Value: 20
-  ItemType: 1
-  SlotType: 1
+  icon: {fileID: 21300000, guid: e420c5bc93cb2604695a893500c897e3, type: 3}
+  Name: PlateArmor
+  Value: 10
+  ItemType: 2
+  SlotType: 2
