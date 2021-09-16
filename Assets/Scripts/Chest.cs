@@ -43,16 +43,19 @@ public class Chest : MonoBehaviour
         }
     }
 
+    //executa quando pega os itens de dentro do báu
     void OpenChest()
     {
-        foreach(Item i in Items)
-        {
-            i.GetAction();
-        }
+        
         anim.SetTrigger("open");
         IsOpened = true;
         box.enabled = false;
         AudioController.current.PlayMusic(AudioController.current.SfxOpenChest);
+
+        foreach(Item i in Items)
+        {
+            Inventory.instance.CreateItem(i);
+        }
 
     }
 

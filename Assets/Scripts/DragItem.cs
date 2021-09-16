@@ -54,11 +54,13 @@ public class DragItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
         {
             transform.SetParent(slotTransform);
             item.GetAction();
+            
 
         }
         else if (slot.SlotType.ToString() == "Inventory")
         {
             transform.SetParent(slotTransform);
+            item.RemoveStats();
         }
     }
     

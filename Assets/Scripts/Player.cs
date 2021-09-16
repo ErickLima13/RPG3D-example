@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-
+using UnityEngine.EventSystems;
 public class Player : MonoBehaviour
 {
     [Header("Attributes")]
@@ -40,8 +40,13 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Move();
-        GetMouseInput();
+        if(EventSystem.current.currentSelectedGameObject == null)
+        {
+            Move();
+            GetMouseInput();
+        }
+       
+        
     }
 
     private void Move()
@@ -190,4 +195,18 @@ public class Player : MonoBehaviour
         isReady = false;
         anim.SetBool("attacking", false);
     }
+
+    public void IncreaseStats(float Health, float IncreaseSpeed)
+    {
+        CurrentHealth += Health;
+        Speed += IncreaseSpeed;
+    }
+
+    public void DecreaseStats(float Health, float IncreaseSpeed)
+    {
+        CurrentHealth -= Health;
+        Speed -= IncreaseSpeed;
+    }
+
+
 }
